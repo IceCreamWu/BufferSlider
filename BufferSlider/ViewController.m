@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "BufferSlider.h"
 
 @interface ViewController ()
+
+@property (nonatomic, strong) BufferSlider *bufferSlider;
 
 @end
 
@@ -16,12 +19,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    [self.view addSubview:self.bufferSlider];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewDidLayoutSubviews {
+    self.bufferSlider.frame = CGRectMake(10, 100, self.view.frame.size.width - 20, 5);
+    [super viewDidLayoutSubviews];
+}
+
+#pragma mark - Getter
+- (BufferSlider *)bufferSlider {
+    if (!_bufferSlider) {
+        _bufferSlider = [[BufferSlider alloc] init];
+        _bufferSlider.minimumTrackTintColor = [UIColor colorWithRed:255.0/255 green:91.0/255 blue:0.0/255 alpha:1];
+        _bufferSlider.bufferTrackTintColor = [UIColor greenColor];
+        _bufferSlider.maximumTrackTintColor = [UIColor colorWithWhite:0.6 alpha:1];
+        _bufferSlider.thumbTintColor = [UIColor redColor];
+        _bufferSlider.minimumValue = 0;
+        _bufferSlider.maximumValue = 100;
+        _bufferSlider.value = 10;
+        _bufferSlider.bufferValue = 50;
+    }
+    return _bufferSlider;
 }
 
 @end
