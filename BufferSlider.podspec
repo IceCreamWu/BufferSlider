@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   
   s.source       = { :git => "https://github.com/IceCreamWu/BufferSlider.git", :tag => "0.0.1" }
 
-  s.source_files  = "Views/*.{h,m}"
+  s.source_files  = "BufferSlider/Views/*.{h,m}"
   s.exclude_files = "Classes/Exclude"
 
 end
